@@ -16,12 +16,11 @@ public class StatisticsController {
     @ResponseBody
     public String queryMedianByClass(@PathVariable("classid") int classid){
         System.out.println("hello"+classid);
-        scoreServiceImpl.queryMedianByClass(classid);
-        return "hello";
+        return scoreServiceImpl.queryMedianByClass(classid);
     }
-    @RequestMapping("/queryAverageByClass")
+    @RequestMapping(value = "/queryAverageByClass/{classid}" ,method = RequestMethod.GET)
     @ResponseBody
-    public String queryAverageByClass(){
-        return "hello";
+    public String queryAverageByClass(@PathVariable("classid") int classid){
+        return scoreServiceImpl.queryAverageByClass(classid);
     }
 }

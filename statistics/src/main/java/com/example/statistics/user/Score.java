@@ -7,8 +7,9 @@ import jakarta.persistence.*;
 public class Score {
     @Id
     int id;
-    @Column(name = "score")
-    int score;
+    @Column(name = "mathScore")
+    int mathScore;
+
     @Column(name = "classid")
     int classid;
 
@@ -20,12 +21,12 @@ public class Score {
         this.id = id;
     }
 
-    public int getScore() {
-        return score;
+    public int getMathScore() {
+        return mathScore;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public void setMathScore(int mathScore) {
+        this.mathScore = mathScore;
     }
 
     public int getClassid() {

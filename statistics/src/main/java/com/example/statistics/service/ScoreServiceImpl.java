@@ -26,7 +26,7 @@ public class ScoreServiceImpl implements ScoreService{
 
     @Override
     public String queryAverageByClass(int classid) {
-        return null;
+        return sdi.queryAverageByClass(classid);
     }
     private int[] bubbleSort(int[] nums){
         int len = nums.length;

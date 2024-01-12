@@ -16,7 +16,7 @@ public class ScoreDaoImpl implements ScoreDao{
     @Override
     public List<Integer> queryMedianByClass(int classid) {
         List<Integer> res = new LinkedList<Integer>();
-        String sql = "select score from score where classid = "+classid;
+        String sql = "select mathScore from score where classid = "+classid;
         List<Map<String, Object>> list = jdbcTemplate.queryForList(sql);
         Iterator<Map<String, Object>> iterator = list.iterator();
         while(iterator.hasNext()){
@@ -34,6 +34,8 @@ public class ScoreDaoImpl implements ScoreDao{
 
     @Override
     public String queryAverageByClass(int classid) {
-        return null;
+        String sql = "SELECT avg(mathScore) FROM score WHERE classid="+classid;
+        String res = jdbcTemplate.queryForObject(sql, String.class);
+        return String.format("%.2f", Float.valueOf(res));
     }
 }
